@@ -9,47 +9,76 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "address")
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long addressId;
+    private int id;
 
+    private String area;
+    private String street;
     private String pincode;
 
     @ManyToOne
-    @JoinColumn(name = "country_id")
+    @JoinColumn(name="country_id")
     private Country country;
 
     @ManyToOne
-    @JoinColumn(name = "state_id")
+    @JoinColumn(name="state_id")
     private State state;
 
     @ManyToOne
-    @JoinColumn(name = "district_id")
+    @JoinColumn(name="district_id")
     private District district;
 
     @ManyToOne
-    @JoinColumn(name = "taluka_id")
+    @JoinColumn(name="taluka_id")
     private Taluka taluka;
 
     @ManyToOne
-    @JoinColumn(name = "town_id")
+    @JoinColumn(name="town_id")
     private Town town;
 
 	/**
-	 * @return the addressId
+	 * @return the id
 	 */
-	public Long getAddressId() {
-		return addressId;
+	public int getId() {
+		return id;
 	}
 
 	/**
-	 * @param addressId the addressId to set
+	 * @param id the id to set
 	 */
-	public void setAddressId(Long addressId) {
-		this.addressId = addressId;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the area
+	 */
+	public String getArea() {
+		return area;
+	}
+
+	/**
+	 * @param area the area to set
+	 */
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	/**
+	 * @return the street
+	 */
+	public String getStreet() {
+		return street;
+	}
+
+	/**
+	 * @param street the street to set
+	 */
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 	/**
@@ -138,11 +167,15 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [addressId=" + addressId + ", pincode=" + pincode + "]";
+		return "Address [id=" + id + ", area=" + area + ", street=" + street + ", pincode=" + pincode + ", country="
+				+ country + ", state=" + state + ", district=" + district + ", taluka=" + taluka + ", town=" + town
+				+ "]";
 	}
 
 	/**
-	 * @param addressId
+	 * @param id
+	 * @param area
+	 * @param street
 	 * @param pincode
 	 * @param country
 	 * @param state
@@ -150,10 +183,12 @@ public class Address {
 	 * @param taluka
 	 * @param town
 	 */
-	public Address(Long addressId, String pincode, Country country, State state, District district, Taluka taluka,
-			Town town) {
+	public Address(int id, String area, String street, String pincode, Country country, State state, District district,
+			Taluka taluka, Town town) {
 		super();
-		this.addressId = addressId;
+		this.id = id;
+		this.area = area;
+		this.street = street;
 		this.pincode = pincode;
 		this.country = country;
 		this.state = state;
@@ -169,6 +204,8 @@ public class Address {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+    
+    
     
     
 }
