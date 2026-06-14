@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.Tracking;
 
 @Repository
-public interface TrackingRepository extends JpaRepository<Tracking, Integer>{
+public interface TrackingRepository extends JpaRepository<Tracking, Long>{
 
 }
