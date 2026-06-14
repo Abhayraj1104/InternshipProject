@@ -7,21 +7,20 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long countryId;
-
+    private Integer countryId;
     private String countryName;
 
 	/**
 	 * @return the countryId
 	 */
-	public Long getCountryId() {
+	public Integer getCountryId() {
 		return countryId;
 	}
 
 	/**
 	 * @param countryId the countryId to set
 	 */
-	public void setCountryId(Long countryId) {
+	public void setCountryId(Integer countryId) {
 		this.countryId = countryId;
 	}
 
@@ -48,7 +47,7 @@ public class Country {
 	 * @param countryId
 	 * @param countryName
 	 */
-	public Country(Long countryId, String countryName) {
+	public Country(Integer countryId, String countryName) {
 		super();
 		this.countryId = countryId;
 		this.countryName = countryName;

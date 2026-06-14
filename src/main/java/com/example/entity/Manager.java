@@ -38,14 +38,14 @@ public class Manager {
 	 * @return the employee
 	 */
 	public Employee getEmployee() {
-		return employee;
+		return null;
 	}
 
 	/**
 	 * @param employee the employee to set
 	 */
 	public void setEmployee(Employee employee) {
-		this.employee = employee;
+		this.employees = employees;
 	}
 
 	/**
@@ -55,12 +55,12 @@ public class Manager {
 	public Manager(Long managerId, Employee employee) {
 		super();
 		this.managerId = managerId;
-		this.employee = employee;
+		this.employees = employees;
 	}
 
 	@Override
 	public String toString() {
-		return "Manager [managerId=" + managerId + ", employee=" + employee + "]";
+		return "Manager [managerId=" + managerId + ", employee=" + employees + "]";
 	}
 
 	/**
