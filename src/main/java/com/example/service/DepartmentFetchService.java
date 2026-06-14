@@ -3,6 +3,6 @@ package com.example.service;
 import com.example.entity.Department;
 
 public interface DepartmentFetchService {
-	Department fetchById(int id);
+	Department fetchById(Long id);
 
 }
