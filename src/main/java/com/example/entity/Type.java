@@ -10,21 +10,21 @@ public class Type {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long typeId;
+    private Integer typeId;
 
     private String typeName;
 
 	/**
 	 * @return the typeId
 	 */
-	public Long getTypeId() {
+	public Integer getTypeId() {
 		return typeId;
 	}
 
 	/**
 	 * @param typeId the typeId to set
 	 */
-	public void setTypeId(Long typeId) {
+	public void setTypeId(Integer typeId) {
 		this.typeId = typeId;
 	}
 
@@ -51,7 +51,7 @@ public class Type {
 	 * @param typeId
 	 * @param typeName
 	 */
-	public Type(Long typeId, String typeName) {
+	public Type(Integer typeId, String typeName) {
 		super();
 		this.typeId = typeId;
 		this.typeName = typeName;
