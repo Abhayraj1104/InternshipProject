@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.Upi;
 
 @Repository
-public interface UpiRepository extends JpaRepository<Upi, Integer>{
+public interface UpiRepository extends JpaRepository<Upi, Long>{
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.COD;
 
 @Repository
-public interface CODRepository extends JpaRepository<COD, Integer>{
+public interface CODRepository extends JpaRepository<COD, Long>{
 
 }

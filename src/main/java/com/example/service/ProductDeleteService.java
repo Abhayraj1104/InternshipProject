@@ -1,6 +1,6 @@
 package com.example.service;
 
 public interface ProductDeleteService {
-	void deleteById(int id);
+	void deleteById(Long id);
 
 }

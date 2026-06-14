@@ -3,6 +3,6 @@ package com.example.service;
 import com.example.entity.Order;
 
 public interface OrderUpdateService {
-	Order updateData(Order order , int id);
+	Order updateData(Order order , Long id);
 
 }

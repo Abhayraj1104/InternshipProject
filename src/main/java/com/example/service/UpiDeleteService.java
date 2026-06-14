@@ -1,6 +1,6 @@
 package com.example.service;
 
 public interface UpiDeleteService {
-	void deleteById(int id);
+	void deleteById(Long id);
 
 }
