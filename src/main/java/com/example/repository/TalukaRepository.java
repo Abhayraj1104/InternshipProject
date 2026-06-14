@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.Taluka;
 
 @Repository
-public interface TalukaRepository extends JpaRepository<Taluka, Integer>{
+public interface TalukaRepository extends JpaRepository<Taluka, Long>{
 
 }
