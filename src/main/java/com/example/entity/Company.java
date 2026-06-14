@@ -1,93 +1,139 @@
 package com.example.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long companyId;
+    private int regNo;
 
-    private String companyName;
+    private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private CompanyType type;
-
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+    @OneToMany
+    private List<Address> addresses;
 
     @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
+    private Owner owner;
 
-	public Long getCompanyId() {
-		return companyId;
-	}
+    @OneToMany(mappedBy = "company")
+    private List<Manager> managers;
 
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
+    @OneToMany(mappedBy = "company")
+    private List<Admin> admins;
 
-	public String getCompanyName() {
-		return companyName;
-	}
+    @OneToMany(mappedBy = "company")
+    private List<Employee> employees;
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+    @OneToMany(mappedBy = "company")
+    private List<Department> departments;
 
-	public CompanyType getType() {
-		return type;
-	}
+    @OneToMany
+    private List<CompanyType> companyTypes;
 
-	public void setType(CompanyType type) {
-		this.type = type;
-	}
+    public Company() {
+    }
 
-	public Owner getOwner() {
-		return owner;
-	}
+    public Company(int regNo, String name,
+                   List<Address> addresses,
+                   Owner owner,
+                   List<Manager> managers,
+                   List<Admin> admins,
+                   List<Employee> employees,
+                   List<Department> departments,
+                   List<CompanyType> companyTypes) {
 
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
+        this.regNo = regNo;
+        this.name = name;
+        this.addresses = addresses;
+        this.owner = owner;
+        this.managers = managers;
+        this.admins = admins;
+        this.employees = employees;
+        this.departments = departments;
+        this.companyTypes = companyTypes;
+    }
 
-	public Address getAddress() {
-		return address;
-	}
+    public int getRegNo() {
+        return regNo;
+    }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+    public void setRegNo(int regNo) {
+        this.regNo = regNo;
+    }
 
-	@Override
-	public String toString() {
-		return "Company [companyId=" + companyId + ", companyName=" + companyName + "]";
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Company(Long companyId, String companyName, CompanyType type, Owner owner, Address address) {
-		super();
-		this.companyId = companyId;
-		this.companyName = companyName;
-		this.type = type;
-		this.owner = owner;
-		this.address = address;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Company() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
-    
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public List<Manager> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(List<Manager> managers) {
+        this.managers = managers;
+    }
+
+    public List<Admin> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(List<Admin> admins) {
+        this.admins = admins;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    public List<CompanyType> getCompanyTypes() {
+        return companyTypes;
+    }
+
+    public void setCompanyTypes(List<CompanyType> companyTypes) {
+        this.companyTypes = companyTypes;
+    }
+
+    @Override
+    public String toString() {
+        return "Company [regNo=" + regNo +
+               ", name=" + name + "]";
+    }
 }
