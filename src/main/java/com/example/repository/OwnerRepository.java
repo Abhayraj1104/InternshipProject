@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.Owner;
 
 @Repository
-public interface OwnerRepository extends JpaRepository<Owner, Integer>{
+public interface OwnerRepository extends JpaRepository<Owner, Long>{
 
 }

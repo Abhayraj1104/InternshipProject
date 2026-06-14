@@ -7,21 +7,21 @@ public class PaymentMode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentModeId;
+    private Integer paymentModeId;
 
     private String modeName;
 
 	/**
 	 * @return the paymentModeId
 	 */
-	public Long getPaymentModeId() {
+	public Integer getPaymentModeId() {
 		return paymentModeId;
 	}
 
 	/**
 	 * @param paymentModeId the paymentModeId to set
 	 */
-	public void setPaymentModeId(Long paymentModeId) {
+	public void setPaymentModeId(Integer paymentModeId) {
 		this.paymentModeId = paymentModeId;
 	}
 
@@ -48,7 +48,7 @@ public class PaymentMode {
 	 * @param paymentModeId
 	 * @param modeName
 	 */
-	public PaymentMode(Long paymentModeId, String modeName) {
+	public PaymentMode(Integer paymentModeId, String modeName) {
 		super();
 		this.paymentModeId = paymentModeId;
 		this.modeName = modeName;
