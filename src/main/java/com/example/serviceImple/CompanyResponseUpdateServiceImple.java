@@ -34,9 +34,13 @@ public class CompanyResponseUpdateServiceImple implements CompanyResponseUpdateS
                 existingResponse.setCustomerQuery(query);
             }
 
-            if (companyResponse.getEmployee() != null && companyResponse.getEmployee().getEmployeeId() != null) {
-                Employee employee = employeeRepository.findById(companyResponse.getEmployee().getEmployeeId()).orElse(null);
-                existingResponse.setEmployee(employee);
+            if (companyResponse.getEmployee() != null)  {
+            	Employee employee =
+            	        employeeRepository.findById(
+            	                companyResponse.getEmployee().getId())
+            	        .orElse(null);
+
+            	existingResponse.setEmployee(employee);
             }
 
             return companyResponseRepository.save(existingResponse);

@@ -23,8 +23,13 @@ public class BrandUpdateServiceImple implements BrandUpdateService {
         Brand existingBrand = brandRepository.findById(id).orElse(null);
         if (existingBrand != null) {
             existingBrand.setBrandName(brand.getBrandName());
-            if (brand.getCompany() != null && brand.getCompany().getCompanyId() != null) {
-                Company company = companyRepository.findById(brand.getCompany().getCompanyId()).orElse(null);
+            if (brand.getCompany() != null) {
+
+                Company company =
+                    companyRepository.findById(
+                        brand.getCompany().getRegNo())
+                    .orElse(null);
+
                 existingBrand.setCompany(company);
             }
             return brandRepository.save(existingBrand);
