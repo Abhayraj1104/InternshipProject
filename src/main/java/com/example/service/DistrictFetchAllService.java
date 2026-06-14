@@ -7,9 +7,5 @@ import com.example.entity.District;
 
 public interface DistrictFetchAllService {
 	List<District> fetchAll();
-	
-	
-	
-	
 
 }
