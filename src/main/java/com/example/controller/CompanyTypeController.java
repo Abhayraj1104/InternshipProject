@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.entity.Type;
+import com.example.entity.CompanyType;
+
 import com.example.service.TypeCreateService;
 import com.example.service.TypeDeleteService;
 import com.example.service.TypeFetchAllService;
@@ -14,7 +15,7 @@ import com.example.service.TypeUpdateService;
 
 @RestController
 @RequestMapping("/type")
-public class TypeController {
+public class CompanyTypeController {
 
     @Autowired
     private TypeCreateService typeCreateService;
@@ -32,7 +33,7 @@ public class TypeController {
     private TypeFetchAllService typeFetchAllService;
 
     @PostMapping("/save")
-    public Type saveType(@RequestBody Type type) {
+    public CompanyType saveType(@RequestBody CompanyType type) {
         return typeCreateService.addData(type);
     }
 
@@ -42,17 +43,17 @@ public class TypeController {
     }
 
     @GetMapping("/fetchAll")
-    public List<Type> fetchAllType() {
+    public List<CompanyType> fetchAllType() {
         return typeFetchAllService.fetchAll();
     }
 
     @GetMapping("/fetch/{id}")
-    public Type fetchType(@PathVariable int id) {
+    public CompanyType fetchType(@PathVariable int id) {
         return typeFetchService.fetchById(id);
     }
 
     @PutMapping("/update/{id}")
-    public Type updateType(@RequestBody Type type,
+    public CompanyType updateType(@RequestBody CompanyType type,
                            @PathVariable int id) {
         return typeUpdateService.updateData(type, id);
     }

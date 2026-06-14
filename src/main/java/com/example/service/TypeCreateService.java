@@ -1,8 +1,9 @@
 package com.example.service;
 
-import com.example.entity.Type;
+import com.example.entity.CompanyType;
+
 
 public interface TypeCreateService {
-	Type addData(Type type);
+	CompanyType addData(CompanyType type);
 
 }

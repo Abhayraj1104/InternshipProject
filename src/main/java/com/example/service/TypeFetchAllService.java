@@ -2,11 +2,11 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.entity.CompanyType;
 
-import com.example.entity.Type;
 
 public interface TypeFetchAllService {
-	List<Type> fetchAll();
+	List<CompanyType> fetchAll();
 	
 	
 

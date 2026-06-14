@@ -1,8 +1,9 @@
 package com.example.service;
 
-import com.example.entity.Type;
+import com.example.entity.CompanyType;
+
 
 public interface TypeFetchService {
-	Type fetchById(int id);
+	CompanyType fetchById(int id);
 
 }

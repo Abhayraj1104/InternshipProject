@@ -20,7 +20,7 @@ public class Company {
 
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private Type type;
+    private CompanyType type;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
@@ -46,11 +46,11 @@ public class Company {
 		this.companyName = companyName;
 	}
 
-	public Type getType() {
+	public CompanyType getType() {
 		return type;
 	}
 
-	public void setType(Type type) {
+	public void setType(CompanyType type) {
 		this.type = type;
 	}
 
@@ -75,7 +75,7 @@ public class Company {
 		return "Company [companyId=" + companyId + ", companyName=" + companyName + "]";
 	}
 
-	public Company(Long companyId, String companyName, Type type, Owner owner, Address address) {
+	public Company(Long companyId, String companyName, CompanyType type, Owner owner, Address address) {
 		super();
 		this.companyId = companyId;
 		this.companyName = companyName;

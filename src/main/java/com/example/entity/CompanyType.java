@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Type {
+public class CompanyType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +51,7 @@ public class Type {
 	 * @param typeId
 	 * @param typeName
 	 */
-	public Type(Integer typeId, String typeName) {
+	public CompanyType(Integer typeId, String typeName) {
 		super();
 		this.typeId = typeId;
 		this.typeName = typeName;
@@ -60,7 +60,7 @@ public class Type {
 	/**
 	 * 
 	 */
-	public Type() {
+	public CompanyType() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
