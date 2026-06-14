@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entity.State;
 
 @Repository
-public interface StateRepository extends JpaRepository<State, Integer>{
+public interface StateRepository extends JpaRepository<State, Long>{
 
 }
