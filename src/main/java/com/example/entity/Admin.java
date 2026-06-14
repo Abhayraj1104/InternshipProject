@@ -14,12 +14,12 @@ public class Admin {
     private String panno;
     private String email;
 
-    @Temporal(TemporalType.DATE)
+    
     private Date dob;
 
     private String mobileNo;
 
-    @Temporal(TemporalType.DATE)
+    
     private Date doj;
 
     private String experience;
@@ -28,7 +28,7 @@ public class Admin {
     @JoinColumn(name = "admin_id")
     private List<Address> addresses;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
 
