@@ -1,66 +1,102 @@
 package com.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "department")
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deptId;
+    private int did;
 
-    private String deptName;
+    private String name;
+
+    @OneToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
+
+    @OneToMany
+    @JoinColumn(name = "department_id")
+    private List<Employee> employees;
+
+    @OneToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_reg_no")
     private Company company;
 
-	public Long getDeptId() {
-		return deptId;
-	}
+    public Department() {
+        super();
+    }
 
-	public void setDeptId(Long deptId) {
-		this.deptId = deptId;
-	}
+    public Department(int did, String name, Manager manager,
+                      List<Employee> employees,
+                      Admin admin,
+                      Company company) {
+        super();
+        this.did = did;
+        this.name = name;
+        this.manager = manager;
+        this.employees = employees;
+        this.admin = admin;
+        this.company = company;
+    }
 
-	public String getDeptName() {
-		return deptName;
-	}
+    public int getDid() {
+        return did;
+    }
 
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
-	}
+    public void setDid(int did) {
+        this.did = did;
+    }
 
-	public Company getCompany() {
-		return company;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return "Department [deptId=" + deptId + ", deptName=" + deptName + ", company=" + company + "]";
-	}
+    public Manager getManager() {
+        return manager;
+    }
 
-	public Department(Long deptId, String deptName, Company company) {
-		super();
-		this.deptId = deptId;
-		this.deptName = deptName;
-		this.company = company;
-	}
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
 
-	public Department() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @Override
+    public String toString() {
+        return "Department [did=" + did +
+                ", name=" + name + "]";
+    }
 }

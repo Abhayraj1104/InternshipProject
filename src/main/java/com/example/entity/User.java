@@ -1,98 +1,143 @@
 package com.example.entity;
 
-import java.security.PrivateKey;
+import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
-	@Id	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private String name;
-	private String email;
-	private String mobile;
-	private String  password;
-	
-	@ManyToOne
-	@JoinColumn(name="role_id")
-	private Role role;
 
-	public int getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private String adhar;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String panno;
 
-	public String getEmail() {
-		return email;
-	}
+    private String email;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    private LocalDate dob;
 
-	public String getMobile() {
-		return mobile;
-	}
+    private String mobileNo;
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Address> addresses;
 
-	public String getPassword() {
-		return password;
-	}
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public User() {
+        super();
+    }
 
-	public Role getRole() {
-		return role;
-	}
+    public User(int id, String name, String adhar, String panno,
+                String email, LocalDate dob, String mobileNo,
+                List<Address> addresses, Role role) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.adhar = adhar;
+        this.panno = panno;
+        this.email = email;
+        this.dob = dob;
+        this.mobileNo = mobileNo;
+        this.addresses = addresses;
+        this.role = role;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public int getId() {
+        return id;
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", mobile=" + mobile + ", password="
-				+ password + ", role=" + role + "]";
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public User(int id, String name, String email, String mobile, String password, Role role) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.mobile = mobile;
-		this.password = password;
-		this.role = role;
-	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    public String getAdhar() {
+        return adhar;
+    }
+
+    public void setAdhar(String adhar) {
+        this.adhar = adhar;
+    }
+
+    
+    public String getPanno() {
+        return panno;
+    }
+
+    public void setPanno(String panno) {
+        this.panno = panno;
+    }
+
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "User [id=" + id +
+                ", name=" + name +
+                ", email=" + email +
+                ", mobileNo=" + mobileNo + "]";
+    }
 }

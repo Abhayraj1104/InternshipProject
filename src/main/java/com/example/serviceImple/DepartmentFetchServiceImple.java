@@ -15,7 +15,7 @@ public class DepartmentFetchServiceImple
     private DepartmentRepository repository;
 
     @Override
-    public Department fetchById(Long id) {
+    public Department fetchById(int id) {
 
         return repository.findById(id)
                          .orElse(null);

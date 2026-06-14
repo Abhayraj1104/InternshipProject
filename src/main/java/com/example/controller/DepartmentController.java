@@ -41,7 +41,7 @@ public class DepartmentController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteDepartment(
-            @PathVariable Long id) {
+            @PathVariable int id) {
 
         departmentDeleteService.deleteById(id);
     }
@@ -54,7 +54,7 @@ public class DepartmentController {
 
     @GetMapping("/fetch/{id}")
     public Department fetchDepartment(
-            @PathVariable Long id) {
+            @PathVariable int id) {
 
         return departmentFetchService.fetchById(id);
     }
@@ -62,7 +62,7 @@ public class DepartmentController {
     @PutMapping("/update/{id}")
     public Department updateDepartment(
             @RequestBody Department department,
-            @PathVariable Long id) {
+            @PathVariable int id) {
 
         return departmentUpdateService
                 .updateData(department, id);

@@ -14,7 +14,7 @@ public class DepartmentDeleteServiceImple
     private DepartmentRepository repository;
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
 
         repository.deleteById(id);
     }

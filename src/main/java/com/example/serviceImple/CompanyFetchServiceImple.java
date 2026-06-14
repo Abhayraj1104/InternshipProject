@@ -15,7 +15,7 @@ public class CompanyFetchServiceImple
     private CompanyRepository repository;
 
     @Override
-    public Company fetchById(Long id) {
+    public Company fetchById(int id) {
         return repository.findById(id).orElse(null);
     }
 }

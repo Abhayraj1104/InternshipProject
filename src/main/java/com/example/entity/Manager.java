@@ -1,75 +1,209 @@
 package com.example.entity;
 
+import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Manager {
 
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long managerId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	    @OneToMany(mappedBy = "manager")
-	    private List<Employee> employees;
+    private String name;
 
-	/**
-	 * @return the managerId
-	 */
-	public Long getManagerId() {
-		return managerId;
-	}
+    private String adhar;
 
-	/**
-	 * @param managerId the managerId to set
-	 */
-	public void setManagerId(Long managerId) {
-		this.managerId = managerId;
-	}
+    private String panno;
 
-	/**
-	 * @return the employee
-	 */
-	public Employee getEmployee() {
-		return null;
-	}
+    private String email;
 
-	/**
-	 * @param employee the employee to set
-	 */
-	public void setEmployee(Employee employee) {
-		this.employees = employees;
-	}
+    private String experience;
 
-	/**
-	 * @param managerId
-	 * @param employee
-	 */
-	public Manager(Long managerId, Employee employee) {
-		super();
-		this.managerId = managerId;
-		this.employees = employees;
-	}
+    private float salary;
 
-	@Override
-	public String toString() {
-		return "Manager [managerId=" + managerId + ", employee=" + employees + "]";
-	}
+   
+    private Date dob;
 
-	/**
-	 * 
-	 */
-	public Manager() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
-    
+   
+    private Date doj;
+
+    private String mobileNo;
+
+    @ManyToOne
+    @JoinColumn(name = "company_reg_no")
+    private Company company;
+
+    @OneToOne(mappedBy = "manager")
+    private Department department;
+
+    @OneToMany
+    @JoinColumn(name = "manager_id")
+    private List<Address> addresses;
+
+    @OneToMany
+    @JoinColumn(name = "manager_id")
+    private List<Employee> employees;
+
+    public Manager() {
+        super();
+    }
+
+    public Manager(int id, String name, String adhar, String panno,
+                   String email, String experience, float salary,
+                   Date dob, Date doj, String mobileNo,
+                   Company company, Department department,
+                   List<Address> addresses,
+                   List<Employee> employees) {
+
+        this.id = id;
+        this.name = name;
+        this.adhar = adhar;
+        this.panno = panno;
+        this.email = email;
+        this.experience = experience;
+        this.salary = salary;
+        this.dob = dob;
+        this.doj = doj;
+        this.mobileNo = mobileNo;
+        this.company = company;
+        this.department = department;
+        this.addresses = addresses;
+        this.employees = employees;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getAdhar() {
+        return adhar;
+    }
+
+    public void setAdhar(String adhar) {
+        this.adhar = adhar;
+    }
+
+
+    public String getPanno() {
+        return panno;
+    }
+
+    public void setPanno(String panno) {
+        this.panno = panno;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+
+    public Date getDoj() {
+        return doj;
+    }
+
+    public void setDoj(Date doj) {
+        this.doj = doj;
+    }
+
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Manager [id=" + id +
+                ", name=" + name +
+                ", email=" + email +
+                ", salary=" + salary + "]";
+    }
 }

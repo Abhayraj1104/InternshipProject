@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Admin;
 import com.example.entity.Address;
+import com.example.entity.Admin;
 import com.example.entity.Company;
 import com.example.entity.Department;
 import com.example.entity.Role;
 
-import com.example.repository.AdminRepository;
 import com.example.repository.AddressRepository;
+import com.example.repository.AdminRepository;
 import com.example.repository.CompanyRepository;
 import com.example.repository.DepartmentRepository;
 import com.example.repository.RoleRepository;
@@ -50,17 +50,20 @@ public class AdminCreateServiceImple
 
         Company company =
                 companyRepository.findById(
-                        admin.getCompany().getCompanyId())
+                        admin.getCompany()
+                             .getRegNo())
                 .orElse(null);
 
         Department department =
                 departmentRepository.findById(
-                        admin.getDepartment().getDeptId())
+                        admin.getDepartment()
+                             .getDid())
                 .orElse(null);
 
         Role role =
                 roleRepository.findById(
-                        (int) admin.getRole().getRoleId())
+                        (int) admin.getRole()
+                             .getRoleId())
                 .orElse(null);
 
         admin.setAddresses(addresses);

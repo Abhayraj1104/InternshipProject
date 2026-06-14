@@ -14,7 +14,9 @@ public class CompanyDeleteServiceImple
     private CompanyRepository repository;
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
         repository.deleteById(id);
     }
+
+	
 }

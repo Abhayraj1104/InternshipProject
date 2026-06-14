@@ -1,5 +1,8 @@
 package com.example.entity;
-import java.util.*;
+
+import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,8 +13,11 @@ public class Admin {
     private int id;
 
     private String name;
+
     private String adhar;
+
     private String panno;
+
     private String email;
 
     
@@ -29,118 +35,165 @@ public class Admin {
     private List<Address> addresses;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_reg_no")
     private Company company;
 
     @OneToOne
     @JoinColumn(name = "dept_id")
     private Department department;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
-	public int getId() {
-		return id;
-	}
+    public Admin() {
+        super();
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Admin(int id, String name, String adhar, String panno,
+                 String email, Date dob, String mobileNo,
+                 Date doj, String experience,
+                 List<Address> addresses,
+                 Company company,
+                 Department department,
+                 Role role) {
 
-	public String getName() {
-		return name;
-	}
+        this.id = id;
+        this.name = name;
+        this.adhar = adhar;
+        this.panno = panno;
+        this.email = email;
+        this.dob = dob;
+        this.mobileNo = mobileNo;
+        this.doj = doj;
+        this.experience = experience;
+        this.addresses = addresses;
+        this.company = company;
+        this.department = department;
+        this.role = role;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getAdhar() {
-		return adhar;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setAdhar(String adhar) {
-		this.adhar = adhar;
-	}
 
-	public String getPanno() {
-		return panno;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setPanno(String panno) {
-		this.panno = panno;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getAdhar() {
+        return adhar;
+    }
 
-	public Date getDob() {
-		return dob;
-	}
+    public void setAdhar(String adhar) {
+        this.adhar = adhar;
+    }
 
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
 
-	public String getMobileNo() {
-		return mobileNo;
-	}
+    public String getPanno() {
+        return panno;
+    }
 
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
-	}
+    public void setPanno(String panno) {
+        this.panno = panno;
+    }
 
-	public Date getDoj() {
-		return doj;
-	}
 
-	public void setDoj(Date doj) {
-		this.doj = doj;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getExperience() {
-		return experience;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setExperience(String experience) {
-		this.experience = experience;
-	}
 
-	public List<Address> getAddresses() {
-		return addresses;
-	}
+    public Date getDob() {
+        return dob;
+    }
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 
-	public Company getCompany() {
-		return company;
-	}
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+    public String getMobileNo() {
+        return mobileNo;
+    }
 
-	public Department getDepartment() {
-		return department;
-	}
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
 
-	public Role getRole() {
-		return role;
-	}
+    public Date getDoj() {
+        return doj;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public void setDoj(Date doj) {
+        this.doj = doj;
+    }
+
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin [id=" + id +
+                ", name=" + name +
+                ", email=" + email +
+                ", mobileNo=" + mobileNo + "]";
+    }
 }

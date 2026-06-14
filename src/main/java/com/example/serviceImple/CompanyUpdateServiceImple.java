@@ -1,5 +1,7 @@
 package com.example.serviceImple;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import com.example.entity.Owner;
 
 import com.example.repository.AddressRepository;
 import com.example.repository.CompanyRepository;
+import com.example.repository.CompanysTypeRepository;
 import com.example.repository.CompanysTypeRepository;
 import com.example.repository.OwnerRepository;
 
@@ -23,48 +26,59 @@ public class CompanyUpdateServiceImple
     private CompanyRepository companyRepository;
 
     @Autowired
-    private CompanysTypeRepository companyTypeRepository;
+    private AddressRepository addressRepository;
 
     @Autowired
     private OwnerRepository ownerRepository;
 
     @Autowired
-    private AddressRepository addressRepository;
+    private CompanysTypeRepository companyTypeRepository;
 
-    @Override
-    public Company updateData(Company company, Long id) {
+    
 
-        Company existingCompany =
-                companyRepository.findById(id)
-                                 .orElse(null);
+	@Override
+	public Company updateData(Company company, int regNo) {
+		// TODO Auto-generated method stub
+		
+		 Company existingCompany =
+	                companyRepository.findById(regNo)
+	                                 .orElse(null);
 
-        if (existingCompany != null) {
+	        if (existingCompany != null) {
 
-            existingCompany.setCompanyName(
-                    company.getCompanyName());
+	            existingCompany.setName(
+	                    company.getName());
 
-            CompanyType type =
-                    companyTypeRepository.findById(
-                            company.getType().getTypeId())
-                    .orElse(null);
+	            List<Address> addresses =
+	                    addressRepository.findAllById(
+	                            company.getAddresses()
+	                                   .stream()
+	                                   .map(Address::getId)
+	                                   .toList());
 
-            Owner owner =
-                    ownerRepository.findById(
-                            company.getOwner().getOwnerId())
-                    .orElse(null);
+	            Owner owner =
+	                    ownerRepository.findById(
+	                            company.getOwner()
+	                                   .getOwnerId())
+	                    .orElse(null);
 
-            Address address =
-                    addressRepository.findById(
-                            company.getAddress().getId())
-                    .orElse(null);
+	            List<CompanyType> companyTypes =
+	                    companyTypeRepository.findAllById(
+	                            company.getCompanyTypes()
+	                                   .stream()
+	                                   .map(CompanyType::getTypeId)
+	                                   .toList());
 
-            existingCompany.setType(type);
-            existingCompany.setOwner(owner);
-            existingCompany.setAddress(address);
+	            existingCompany.setAddresses(addresses);
+	            existingCompany.setOwner(owner);
+	            existingCompany.setCompanyTypes(companyTypes);
 
-            return companyRepository.save(existingCompany);
-        }
+	            return companyRepository.save(existingCompany);
+	        }
 
-        return null;
-    }
+	        return null;
+		
+	}
+
+	
 }

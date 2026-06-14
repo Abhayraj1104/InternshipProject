@@ -1,6 +1,6 @@
 package com.example.service;
 
 public interface DepartmentDeleteService {
-	void deleteById(Long id);
+	void deleteById(int id);
 
 }

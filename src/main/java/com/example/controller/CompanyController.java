@@ -39,7 +39,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteCompany(@PathVariable Long id) {
+    public void deleteCompany(@PathVariable int id) {
 
         companyDeleteService.deleteById(id);
     }
@@ -51,14 +51,14 @@ public class CompanyController {
     }
 
     @GetMapping("/fetch/{id}")
-    public Company fetchCompany(@PathVariable Long id) {
+    public Company fetchCompany(@PathVariable int id) {
 
         return companyFetchService.fetchById(id);
     }
 
     @PutMapping("/update/{id}")
     public Company updateCompany(@RequestBody Company company,
-                                 @PathVariable Long id) {
+                                 @PathVariable int id) {
 
         return companyUpdateService.updateData(company, id);
     }
