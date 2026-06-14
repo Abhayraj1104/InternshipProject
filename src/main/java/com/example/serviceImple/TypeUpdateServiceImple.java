@@ -3,20 +3,22 @@ package com.example.serviceImple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Type;
-import com.example.repository.TypeRepository;
+import com.example.entity.CompanyType;
+
+import com.example.repository.CompanysTypeRepository;
+
 import com.example.service.TypeUpdateService;
 
 @Service
 public class TypeUpdateServiceImple implements TypeUpdateService {
 
     @Autowired
-    private TypeRepository repository;
+    private CompanysTypeRepository repository;
 
     @Override
-    public Type updateData(Type type, int id) {
+    public CompanyType updateData(CompanyType type, int id) {
 
-        Type existingType = repository.findById(id).orElse(null);
+        CompanyType existingType = repository.findById(id).orElse(null);
 
         if(existingType != null) {
             existingType.setTypeName(type.getTypeName());
