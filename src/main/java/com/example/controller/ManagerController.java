@@ -21,6 +21,7 @@ import com.example.service.ManagerUpdateService;
 
 @RestController
 @RequestMapping("/manager")
+@CrossOrigin("*")
 public class ManagerController {
 
     @Autowired

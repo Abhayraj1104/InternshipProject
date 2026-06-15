@@ -21,6 +21,7 @@ import com.example.service.SubCategoryUpdateService;
 
 @RestController
 @RequestMapping("/subCategory")
+@CrossOrigin("*")
 public class SubCategoryController {
 
     @Autowired

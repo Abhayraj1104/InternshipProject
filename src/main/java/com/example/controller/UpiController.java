@@ -21,6 +21,7 @@ import com.example.service.UpiUpdateService;
 
 @RestController
 @RequestMapping("/upi")
+@CrossOrigin("*")
 public class UpiController {
 
     @Autowired

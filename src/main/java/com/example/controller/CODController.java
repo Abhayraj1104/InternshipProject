@@ -21,6 +21,7 @@ import com.example.service.CODUpdateService;
 
 @RestController
 @RequestMapping("/cod")
+@CrossOrigin("*")
 public class CODController {
 
     @Autowired

@@ -21,6 +21,7 @@ import com.example.service.PaymentModeUpdateService;
 
 @RestController
 @RequestMapping("/paymentMode")
+@CrossOrigin("*")
 public class PaymentModeController {
 
     @Autowired

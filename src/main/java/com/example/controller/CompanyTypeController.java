@@ -21,6 +21,7 @@ import com.example.service.TypeUpdateService;
 
 @RestController
 @RequestMapping("/type")
+@CrossOrigin("*")
 public class CompanyTypeController {
 
     @Autowired

@@ -21,6 +21,7 @@ import com.example.service.FeedbackUpdateService;
 
 @RestController
 @RequestMapping("/feedback")
+@CrossOrigin("*")
 public class FeedbackController {
 
     @Autowired

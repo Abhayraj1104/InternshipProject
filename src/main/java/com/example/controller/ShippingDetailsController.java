@@ -21,6 +21,7 @@ import com.example.service.ShippingDetailsUpdateService;
 
 @RestController
 @RequestMapping("/shippingDetails")
+@CrossOrigin("*")
 public class ShippingDetailsController {
 
     @Autowired

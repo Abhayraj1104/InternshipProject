@@ -21,6 +21,7 @@ import com.example.service.ProductReviewUpdateService;
 
 @RestController
 @RequestMapping("/productReview")
+@CrossOrigin("*")
 public class ProductReviewController {
 
     @Autowired

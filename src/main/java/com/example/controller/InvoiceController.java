@@ -21,6 +21,7 @@ import com.example.service.InvoiceUpdateService;
 
 @RestController
 @RequestMapping("/invoice")
+@CrossOrigin("*")
 public class InvoiceController {
 
     @Autowired

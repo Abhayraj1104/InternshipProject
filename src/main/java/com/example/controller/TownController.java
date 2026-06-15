@@ -21,6 +21,7 @@ import com.example.service.TownUpdateService;
 
 @RestController
 @RequestMapping("/town")
+@CrossOrigin("*")
 public class TownController {
 
     @Autowired
