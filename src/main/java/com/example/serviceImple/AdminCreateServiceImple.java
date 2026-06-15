@@ -62,7 +62,7 @@ public class AdminCreateServiceImple
 
         Role role =
                 roleRepository.findById(
-                        (int) admin.getRole()
+                        admin.getRole()
                              .getRoleId())
                 .orElse(null);
 

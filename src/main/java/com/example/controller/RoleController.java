@@ -39,8 +39,20 @@ public class RoleController {
 
     @Autowired
     private RoleFetchAllService roleFetchAllService;
+    
 
-    @PostMapping("/save")
+    public RoleController(RoleCreateService roleCreateService, RoleDeleteService roleDeleteService,
+			RoleUpdateService roleUpdateService, RoleFetchService roleFetchService,
+			RoleFetchAllService roleFetchAllService) {
+		super();
+		this.roleCreateService = roleCreateService;
+		this.roleDeleteService = roleDeleteService;
+		this.roleUpdateService = roleUpdateService;
+		this.roleFetchService = roleFetchService;
+		this.roleFetchAllService = roleFetchAllService;
+	}
+
+	@PostMapping("/save")
     public Role saveRole(@RequestBody Role role) {
         return roleCreateService.addData(role);
     }
