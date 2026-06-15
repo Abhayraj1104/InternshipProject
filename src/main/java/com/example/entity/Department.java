@@ -2,7 +2,17 @@ package com.example.entity;
 
 import java.util.List;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Department {
@@ -18,6 +28,7 @@ public class Department {
     private Manager manager;
 
     @OneToMany
+    @JsonBackReference
     @JoinColumn(name = "department_id")
     private List<Employee> employees;
 
@@ -26,6 +37,7 @@ public class Department {
     private Admin admin;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "company_reg_no")
     private Company company;
 

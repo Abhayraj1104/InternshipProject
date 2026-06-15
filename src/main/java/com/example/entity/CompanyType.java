@@ -58,12 +58,12 @@ public class CompanyType {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public CompanyType() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

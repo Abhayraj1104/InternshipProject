@@ -41,7 +41,7 @@ public class ProductUpdateServiceImple implements ProductUpdateService {
                 Category category = categoryRepository.findById(product.getCategory().getCategoryId()).orElse(null);
                 existingProduct.setCategory(category);
             }
-            
+
             if (product.getSubCategory() != null && product.getSubCategory().getSubCategoryId() != null) {
                 SubCategory subCategory = subCategoryRepository.findById(product.getSubCategory().getSubCategoryId()).orElse(null);
                 existingProduct.setSubCategory(subCategory);

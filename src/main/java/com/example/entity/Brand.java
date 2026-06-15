@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Brand {
     private String brandName;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "company_id")
     private Company company;
 
@@ -80,12 +83,12 @@ public class Brand {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public Brand() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

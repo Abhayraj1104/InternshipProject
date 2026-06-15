@@ -9,12 +9,10 @@ import com.example.entity.Address;
 import com.example.entity.Company;
 import com.example.entity.CompanyType;
 import com.example.entity.Owner;
-
 import com.example.repository.AddressRepository;
 import com.example.repository.CompanyRepository;
 import com.example.repository.CompanysTypeRepository;
 import com.example.repository.OwnerRepository;
-
 import com.example.service.CompanyCreateService;
 
 @Service

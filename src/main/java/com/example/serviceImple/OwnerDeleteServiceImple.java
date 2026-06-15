@@ -17,5 +17,5 @@ public class OwnerDeleteServiceImple implements OwnerDeleteService {
         repository.deleteById(id);
     }
 
-	
+
 }

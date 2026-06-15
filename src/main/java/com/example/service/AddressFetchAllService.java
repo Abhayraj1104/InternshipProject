@@ -6,6 +6,6 @@ import com.example.entity.Address;
 
 public interface AddressFetchAllService {
 	List<Address> fetchAll();
-	
-	
+
+
 }

@@ -1,12 +1,13 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
 public class Address {
@@ -20,18 +21,22 @@ public class Address {
     private String pincode;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="country_id")
     private Country country;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="state_id")
     private State state;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="district_id")
     private District district;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="taluka_id")
     private Taluka taluka;
 
@@ -198,14 +203,14 @@ public class Address {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
-    
-    
+
+
+
+
 }

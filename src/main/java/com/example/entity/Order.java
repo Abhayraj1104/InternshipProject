@@ -2,6 +2,8 @@ package com.example.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,10 +24,12 @@ public class Order {
     private Double totalAmount;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "payment_mode_id")
     private PaymentMode paymentMode;
 
@@ -85,12 +89,12 @@ public class Order {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

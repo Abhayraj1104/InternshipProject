@@ -8,14 +8,14 @@ import com.example.service.CountryDeleteService;
 
 @Service
 public class CountryDeleteServiceImple implements CountryDeleteService{
-	
+
 	@Autowired
     private CountryRepository repository;
 
 	@Override
 	public void deleteById(int id) {
 		repository.deleteById(id);
-		
+
 	}
 
 }

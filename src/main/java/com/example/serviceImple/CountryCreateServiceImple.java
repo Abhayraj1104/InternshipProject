@@ -11,7 +11,7 @@ public class CountryCreateServiceImple implements CountryCreateService{
 
 	@Autowired
     private CountryRepository repository;
-	
+
 	@Override
 	public Country addData(Country country) {
 	        return repository.save(country);

@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +22,12 @@ public class ProductReview {
     private String review;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -86,6 +90,6 @@ public class ProductReview {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

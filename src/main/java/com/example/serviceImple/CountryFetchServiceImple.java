@@ -9,12 +9,13 @@ import com.example.service.CountryFetchService;
 
 @Service
 public class CountryFetchServiceImple implements CountryFetchService{
-	@Autowired 
+	@Autowired
 	private CountryRepository countryRepo;
 
-	
+
+	@Override
 	public Country fetchById(int id) {
-		
+
 		return countryRepo.findById(id).get();
 	}
 

@@ -7,9 +7,9 @@ import com.example.entity.CompanyType;
 
 public interface TypeFetchAllService {
 	List<CompanyType> fetchAll();
-	
-	
 
-	
+
+
+
 
 }

@@ -22,6 +22,6 @@ public class CountryFetchAllServiceImple implements CountryFetchAllService{
 		return Countries;
 	}
 
-	
+
 
 }

@@ -34,31 +34,31 @@ public class CountryController {
 		private CountryFetchService countryFetchService;
 		@Autowired
 		private CountryFetchAllService countryFetchAllService;
-		
+
 		@PostMapping("/save")
 	    public Country saveCountry(@RequestBody Country country) {
 	        return countryCreateService.addData(country);
 	    }
-		
+
 		@DeleteMapping("/delete/{id}")
 	    public void delteCountry(@PathVariable int id) {
 	        countryDeleteService.deleteById( id);
 	    }
-		
+
 		@GetMapping("/fetchAll")
 		public List<Country> fetchAllCountry(){
 			return countryFetchAllService.fetchAll();
 		}
-		
+
 		@GetMapping("/fetch/{id}")
 		public Country fetchCountry(@PathVariable int id){
 			return countryFetchService.fetchById(id);
 		}
-		
+
 		@PutMapping("/update/{id}")
 		public Country updateCountry(@RequestBody Country country, @PathVariable int id){
 			return countryUpdateService.updateData(country, id);
 		}
-		
-		
+
+
 }

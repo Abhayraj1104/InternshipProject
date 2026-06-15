@@ -1,6 +1,13 @@
 package com.example.entity;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class CustomerQuery {
@@ -12,6 +19,7 @@ public class CustomerQuery {
     private String queryText;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -62,7 +70,7 @@ public class CustomerQuery {
 		return "CustomerQuery [queryId=" + queryId + ", queryText=" + queryText + ", user=" + user + "]";
 	}
 
-	
+
 	public CustomerQuery(Long queryId, String queryText, User user) {
 		super();
 		this.queryId = queryId;
@@ -71,14 +79,14 @@ public class CustomerQuery {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public CustomerQuery() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-    
-    
+
+
+
+
 }

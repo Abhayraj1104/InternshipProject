@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -81,12 +83,12 @@ public class SubCategory {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public SubCategory() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

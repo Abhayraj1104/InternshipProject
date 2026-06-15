@@ -3,7 +3,17 @@ package com.example.entity;
 import java.time.LocalDate;
 import java.util.List;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
@@ -26,10 +36,12 @@ public class User {
     private String mobileNo;
 
     @OneToMany
+    @JsonBackReference
     @JoinColumn(name = "user_id")
     private List<Address> addresses;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "role_id")
     private Role role;
 
@@ -69,7 +81,7 @@ public class User {
         this.name = name;
     }
 
-    
+
     public String getAdhar() {
         return adhar;
     }
@@ -78,7 +90,7 @@ public class User {
         this.adhar = adhar;
     }
 
-    
+
     public String getPanno() {
         return panno;
     }
@@ -87,7 +99,7 @@ public class User {
         this.panno = panno;
     }
 
-    
+
     public String getEmail() {
         return email;
     }
@@ -96,7 +108,7 @@ public class User {
         this.email = email;
     }
 
-    
+
     public LocalDate getDob() {
         return dob;
     }
@@ -105,7 +117,7 @@ public class User {
         this.dob = dob;
     }
 
-    
+
     public String getMobileNo() {
         return mobileNo;
     }
@@ -114,7 +126,7 @@ public class User {
         this.mobileNo = mobileNo;
     }
 
-    
+
     public List<Address> getAddresses() {
         return addresses;
     }
@@ -123,7 +135,7 @@ public class User {
         this.addresses = addresses;
     }
 
-    
+
     public Role getRole() {
         return role;
     }
@@ -132,7 +144,7 @@ public class User {
         this.role = role;
     }
 
-    
+
     @Override
     public String toString() {
         return "User [id=" + id +

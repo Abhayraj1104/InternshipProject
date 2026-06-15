@@ -9,13 +9,10 @@ import com.example.entity.Address;
 import com.example.entity.Company;
 import com.example.entity.CompanyType;
 import com.example.entity.Owner;
-
 import com.example.repository.AddressRepository;
 import com.example.repository.CompanyRepository;
 import com.example.repository.CompanysTypeRepository;
-import com.example.repository.CompanysTypeRepository;
 import com.example.repository.OwnerRepository;
-
 import com.example.service.CompanyUpdateService;
 
 @Service
@@ -34,12 +31,12 @@ public class CompanyUpdateServiceImple
     @Autowired
     private CompanysTypeRepository companyTypeRepository;
 
-    
+
 
 	@Override
 	public Company updateData(Company company, int regNo) {
 		// TODO Auto-generated method stub
-		
+
 		 Company existingCompany =
 	                companyRepository.findById(regNo)
 	                                 .orElse(null);
@@ -77,8 +74,8 @@ public class CompanyUpdateServiceImple
 	        }
 
 	        return null;
-		
+
 	}
 
-	
+
 }

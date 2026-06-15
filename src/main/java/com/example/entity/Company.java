@@ -2,6 +2,8 @@ package com.example.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,24 +21,30 @@ public class Company {
     private String name;
 
     @OneToMany
+    @JsonBackReference
     private List<Address> addresses;
 
     @OneToOne
     private Owner owner;
 
     @OneToMany(mappedBy = "company")
+    @JsonBackReference
     private List<Manager> managers;
 
     @OneToMany(mappedBy = "company")
+    @JsonBackReference
     private List<Admin> admins;
 
     @OneToMany(mappedBy = "company")
+    @JsonBackReference
     private List<Employee> employees;
 
     @OneToMany(mappedBy = "company")
+    @JsonBackReference
     private List<Department> departments;
 
     @OneToMany
+    @JsonBackReference
     private List<CompanyType> companyTypes;
 
     public Company() {

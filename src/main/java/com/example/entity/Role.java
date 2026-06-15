@@ -2,6 +2,8 @@ package com.example.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +18,9 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long roleId;
 	private String rolename;
-	
+
 	@OneToMany(mappedBy="role")
+	@JsonBackReference
 	private List<User> users;
 
 	public long getRoleId() {

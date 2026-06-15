@@ -81,12 +81,12 @@ public class Owner {
 		this.mobile = mobile;
 	}
 	/**
-	 * 
+	 *
 	 */
 	public Owner() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

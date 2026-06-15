@@ -3,7 +3,17 @@ package com.example.entity;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Admin {
@@ -20,21 +30,23 @@ public class Admin {
 
     private String email;
 
-    
+
     private Date dob;
 
     private String mobileNo;
 
-    
+
     private Date doj;
 
     private String experience;
 
     @OneToMany
+    @JsonBackReference
     @JoinColumn(name = "admin_id")
     private List<Address> addresses;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "company_reg_no")
     private Company company;
 
@@ -43,6 +55,7 @@ public class Admin {
     private Department department;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "role_id")
     private Role role;
 

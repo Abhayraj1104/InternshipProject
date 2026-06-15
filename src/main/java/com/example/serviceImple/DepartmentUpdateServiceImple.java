@@ -10,13 +10,11 @@ import com.example.entity.Company;
 import com.example.entity.Department;
 import com.example.entity.Employee;
 import com.example.entity.Manager;
-
 import com.example.repository.AdminRepository;
 import com.example.repository.CompanyRepository;
 import com.example.repository.DepartmentRepository;
 import com.example.repository.EmployeeRepository;
 import com.example.repository.ManagerRepository;
-
 import com.example.service.DepartmentUpdateService;
 
 @Service
@@ -84,5 +82,5 @@ public class DepartmentUpdateServiceImple
         return null;
     }
 
-	
+
 }

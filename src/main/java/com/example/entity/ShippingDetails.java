@@ -2,7 +2,16 @@ package com.example.entity;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class ShippingDetails {
@@ -14,10 +23,12 @@ public class ShippingDetails {
     private LocalDate shippingDate;
 
     @OneToOne
+    @JsonBackReference
     @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "address_id")
     private Address address;
 
@@ -98,12 +109,12 @@ public class ShippingDetails {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public ShippingDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    
-    
+
+
 }

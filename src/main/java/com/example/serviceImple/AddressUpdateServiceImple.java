@@ -5,18 +5,16 @@ import org.springframework.stereotype.Service;
 
 import com.example.entity.Address;
 import com.example.entity.Country;
-import com.example.entity.State;
 import com.example.entity.District;
+import com.example.entity.State;
 import com.example.entity.Taluka;
 import com.example.entity.Town;
-
 import com.example.repository.AddressRepository;
 import com.example.repository.CountryRepository;
-import com.example.repository.StateRepository;
 import com.example.repository.DistrictRepository;
+import com.example.repository.StateRepository;
 import com.example.repository.TalukaRepository;
 import com.example.repository.TownRepository;
-
 import com.example.service.AddressUpdateService;
 
 @Service
