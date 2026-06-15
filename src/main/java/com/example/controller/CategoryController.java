@@ -14,6 +14,7 @@ import com.example.service.CategoryUpdateService;
 
 @RestController
 @RequestMapping("/category")
+@CrossOrigin("*")
 public class CategoryController {
 
     @Autowired

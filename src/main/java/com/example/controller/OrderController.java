@@ -14,6 +14,7 @@ import com.example.service.OrderUpdateService;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin("*")
 public class OrderController {
 
     @Autowired

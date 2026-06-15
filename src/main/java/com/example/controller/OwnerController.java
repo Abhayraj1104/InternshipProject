@@ -14,6 +14,7 @@ import com.example.service.OwnerUpdateService;
 
 @RestController
 @RequestMapping("/owner")
+@CrossOrigin("*")
 public class OwnerController {
 
     @Autowired

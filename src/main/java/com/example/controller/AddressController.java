@@ -14,6 +14,7 @@ import com.example.service.AddressUpdateService;
 
 @RestController
 @RequestMapping("/address")
+@CrossOrigin("*")
 public class AddressController {
 
     @Autowired

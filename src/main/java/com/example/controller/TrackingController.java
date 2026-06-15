@@ -14,6 +14,7 @@ import com.example.service.TrackingUpdateService;
 
 @RestController
 @RequestMapping("/tracking")
+@CrossOrigin("*")
 public class TrackingController {
 
     @Autowired

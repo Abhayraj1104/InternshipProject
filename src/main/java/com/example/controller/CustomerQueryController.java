@@ -14,6 +14,7 @@ import com.example.service.CustomerQueryUpdateService;
 
 @RestController
 @RequestMapping("/customerQuery")
+@CrossOrigin("*")
 public class CustomerQueryController {
 
     @Autowired

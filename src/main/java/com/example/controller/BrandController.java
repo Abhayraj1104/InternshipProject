@@ -14,6 +14,7 @@ import com.example.service.BrandUpdateService;
 
 @RestController
 @RequestMapping("/brand")
+@CrossOrigin("*")
 public class BrandController {
 
     @Autowired

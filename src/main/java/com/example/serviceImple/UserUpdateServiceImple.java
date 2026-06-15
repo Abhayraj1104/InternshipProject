@@ -46,7 +46,7 @@ public class UserUpdateServiceImple
 
             Role role =
                     roleRepository.findById(
-                            (int) user.getRole().getRoleId())
+                            user.getRole().getRoleId())
                     .orElse(null);
 
             List<Address> addresses =

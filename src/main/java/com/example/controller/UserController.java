@@ -15,6 +15,7 @@ import com.example.service.UserUpdateService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
