@@ -14,6 +14,7 @@ import com.example.service.CardUpdateService;
 
 @RestController
 @RequestMapping("/card")
+@CrossOrigin("*")
 public class CardController {
 
     @Autowired

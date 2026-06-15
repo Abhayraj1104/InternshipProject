@@ -15,6 +15,7 @@ import com.example.service.DepartmentUpdateService;
 
 @RestController
 @RequestMapping("/department")
+@CrossOrigin("*")
 public class DepartmentController {
 
     @Autowired

@@ -14,6 +14,7 @@ import com.example.service.TalukaUpdateService;
 
 @RestController
 @RequestMapping("/taluka")
+@CrossOrigin("*")
 public class TalukaController {
 
     @Autowired
